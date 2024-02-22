@@ -1,0 +1,17 @@
+{
+    "card-info": [
+        {
+            "front": {
+                "kanji": "?",
+                "example_sentence": "?"
+            }
+        },
+        
+        {
+            "back": {
+                "english_translation": "?",
+                "english_example_sentence": "?"
+            }
+        }
+    ]
+}
