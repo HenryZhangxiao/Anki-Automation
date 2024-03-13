@@ -1,9 +1,65 @@
 import json
-import pprint
+import genanki
 
-f = open("test-1.json", encoding='utf8')
-f_loaded = json.load(f)
+#Initialize Model
+my_model = genanki.Model(
+  1,
+  'Default',
+  fields=[
+    {'name': 'Kanji'},
+    {'name': 'Example Sentence'},
+    {'name': 'English Translation'},
+    {'name': 'English Example Sentence'},
+  ],
+  templates=[
+    {
+      'name': 'Card 1',
+      'qfmt': '{{Kanji}}',
+      'afmt': '{{Frontside}}<hr id="et">{{English Translation}}<hr id="es">{{Example Sentence}}<hr id="ees">{{English Example Sentence}}',
+    }
+  ])
 
-pprint.pprint(f_loaded['card-info'][0])
-pprint.pprint(f_loaded['card-info'][1])
+
+'''
+Takes in a json file name and reads the information. It then stores the information in a list.
+
+Parameters: file (String)
+'''
+def read_json(file):
+  #Open JSON file
+  f = open(file, encoding='utf8')
+  f_loaded = json.load(f)
+  card_info_tuple = ()
+  card_list = []
+
+  #Iterate through JSON file and get all fields
+  for i in range(len(f_loaded['card-info'])):
+    kanji = f_loaded["card-info-items"][i]['card-info'][0]['front']['kanji']
+    english_translation = f_loaded["card-info-items"][i][1]['back']['english_translation']
+    example_sentence = f_loaded["card-info-items"][i][1]['back']['example_sentence']
+    english_example_sentence = f_loaded["card-info-items"][i][1]['back']['english_example_sentence']
+
+    #Create card_info_tuple used to store fields
+    card_info_tuple = (kanji, english_translation, example_sentence, english_example_sentence)
+
+    #Add card_info_tuple to the card_list
+    if card_info_tuple not in card_list:
+      card_list.append(card_info_tuple) 
+
+  return card_list
+
+'''
+Iterates through a list of cards, creates a card and adds it to an existing deck. 
+
+Parameters: card_list (List), deck (genanki.Deck)
+'''
+def create_card(card_list, deck=genanki.Deck):
+  #Iterate through the card list and add card to deck
+  for card in card_list:
+    note = genanki.Note(model= my_model, fields=[card[0], card[1], card[2], card[3]] )
+    
+    #Add card to deck
+    deck.add_note(note)
+
+
 

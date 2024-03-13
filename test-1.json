@@ -1,17 +1,16 @@
 {
-    "card-info": [
+    "card-info-items": [ {
+        "card-info": 
         {
             "front": {
-                "kanji": "?",
-                "example_sentence": "?"
-            }
-        },
+                "kanji": "?"
+            },
         
-        {
             "back": {
                 "english_translation": "?",
+                "example_sentence": "?",
                 "english_example_sentence": "?"
-            }
-        }
-    ]
+            }  
+        }  
+    } ]
 }
