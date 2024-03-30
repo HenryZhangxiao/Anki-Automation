@@ -1,0 +1,6 @@
+google-cloud-documentai
+google-cloud-vision
+matplotlib
+numpy
+opencv-python
+pandas
