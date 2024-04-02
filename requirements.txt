@@ -1,3 +1,5 @@
+genanki
+google-api-core
 google-cloud-documentai
 google-cloud-vision
 matplotlib
