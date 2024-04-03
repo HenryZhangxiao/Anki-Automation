@@ -6,3 +6,5 @@ matplotlib
 numpy
 opencv-python
 pandas
+scikit-image
+
