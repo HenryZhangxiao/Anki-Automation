@@ -2,6 +2,7 @@ genanki
 google-api-core
 google-cloud-documentai
 google-cloud-vision
+ipykernel
 matplotlib
 numpy
 opencv-python
