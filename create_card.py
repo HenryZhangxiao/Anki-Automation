@@ -70,7 +70,7 @@ def main():
   card_list1 = read_json("test-1.json")
   deck1 = genanki.Deck(1, "Deck1")
   create_card(card_list1, deck1)
-  genanki.Package(deck1).write_to_file("Deck1")
+  genanki.Package(deck1).write_to_file("Deck1.apkg")
 
 if __name__ == "__main__":
     main()

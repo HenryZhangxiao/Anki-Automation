@@ -12,7 +12,7 @@ def select_file():
 def create_deck():
     deck = genanki.Deck
     create_card.create_card(create_card.read_json(file_path), deck)
-    genanki.Package(deck).write_to_file("Deck1")
+    genanki.Package(deck).write_to_file("NewDeck.apkg")
 
 def main():
     root = tk.Tk()
