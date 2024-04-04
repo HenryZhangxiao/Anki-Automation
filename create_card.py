@@ -16,7 +16,7 @@ my_model = genanki.Model(
     {
       'name': 'Card',
       'qfmt': '{{Kana}}<br>{{Kanji}}',
-      'afmt': '{{Frontside}}<hr id="et">{{English Translation}}<hr id="es">{{Example Sentence}}<hr id="ees">{{English Example Sentence}}',
+      'afmt': '<hr id="et">{{English Translation}}<hr id="es">{{Example Sentence}}<hr id="ees">{{English Example Sentence}}',
     }
   ])
 
