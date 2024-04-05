@@ -58,8 +58,8 @@ Parameters: card_list (List), deck (genanki.Deck)
 def create_card(card_list, deck: genanki.Deck):
   #Iterate through the card list and add card to deck
   for card in card_list:
-    note = genanki.Note(model= my_model, fields=[card[0], card[1], card[2], card[3], card[4]] )
-    
+    note = genanki.Note(model= my_model, fields=[card[0], card[1], card[2], card[3], card[4]])
+
     #Add card to deck
     deck.add_note(note)
 
@@ -67,7 +67,7 @@ def create_card(card_list, deck: genanki.Deck):
 Main method
 '''
 def main():
-  card_list1 = read_json("test-1.json")
+  card_list1 = read_json("data.json")
   deck1 = genanki.Deck(1, "Deck1")
   create_card(card_list1, deck1)
   genanki.Package(deck1).write_to_file("Deck1.apkg")
