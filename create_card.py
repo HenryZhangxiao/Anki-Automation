@@ -16,7 +16,7 @@ my_model = genanki.Model(
     {
       'name': 'Card',
       'qfmt': '{{Kana}}<br>{{Kanji}}',
-      'afmt': '<hr id="et">{{English Translation}}<hr id="es">{{Example Sentence}}<hr id="ees">{{English Example Sentence}}',
+      'afmt': '<hr id="es">{{Example Sentence}}<hr id="et">{{English Translation}}<hr id="ees">{{English Example Sentence}}',
     }
   ])
 
@@ -34,15 +34,15 @@ def read_json(file):
   card_list = []
 
   #Iterate through JSON file and get all fields
-  for i in range(len(f_loaded['card-info-items'])):
-    kana = f_loaded["card-info-items"][i]['card-info']['front']['kana']
-    kanji = f_loaded["card-info-items"][i]['card-info']['front']['kanji']
-    english_translation = f_loaded["card-info-items"][i]['card-info']['back']['english_translation']
-    example_sentence = f_loaded["card-info-items"][i]['card-info']['back']['example_sentence']
-    english_example_sentence = f_loaded["card-info-items"][i]['card-info']['back']['english_example_sentence']
+  for i in range(len(f_loaded)):
+    kana = f_loaded[i][0]
+    kanji = f_loaded[i][1]
+    example_sentence = f_loaded[i][2]
+    english_translation = f_loaded[i][3]
+    english_example_sentence = f_loaded[i][4]
 
     #Create card_info_tuple used to store fields
-    card_info_tuple = (kana, kanji, english_translation, example_sentence, english_example_sentence)
+    card_info_tuple = (kana, kanji, example_sentence, english_translation, english_example_sentence)
 
     #Add card_info_tuple to the card_list
     if card_info_tuple not in card_list:
