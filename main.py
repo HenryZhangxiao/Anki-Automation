@@ -13,9 +13,8 @@ def select_file():
 def create_deck():
     #Run google ocr
     helpers.google_document_ai(file_path)
-    deck = genanki.Deck
+    deck = genanki.Deck(1, "Deck1")
     create_card.create_card(create_card.read_json('data.json'), deck)
-    # create_card.create_card(create_card.read_json(file_path), deck)
     genanki.Package(deck).write_to_file("NewDeck.apkg")
 
 def main():
