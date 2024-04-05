@@ -2,16 +2,20 @@ import tkinter as tk
 from tkinter import filedialog
 import create_card
 import genanki
+import helpers
 
 file_path = ""
 
 def select_file():
+    global file_path
     file_path = filedialog.askopenfilename()
-    #Run google ocr
 
 def create_deck():
+    #Run google ocr
+    helpers.google_document_ai(file_path)
     deck = genanki.Deck
-    create_card.create_card(create_card.read_json(file_path), deck)
+    create_card.create_card(create_card.read_json('data.json'), deck)
+    # create_card.create_card(create_card.read_json(file_path), deck)
     genanki.Package(deck).write_to_file("NewDeck.apkg")
 
 def main():
