@@ -1,0 +1,13 @@
+## How to Run <a name="run"></a>
+- Pre-requisites
+  - python3
+  - `pip install -r requirements.txt`
+  - tkinter
+    - For Ubuntu: sudo apt-get install python3-tk
+    - For Fedora: sudo dnf install python3-tkinter
+    - For MacOS: brew install python-tk
+  - Google Cloud Credentials json file
+    - It will either be attached or you can open an issue
+- To run
+  - `python3 main.py`
+  - Alternatively you can just run main.py in your code editor

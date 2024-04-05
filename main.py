@@ -23,62 +23,12 @@ def select_files():
         create_button.config(state="normal")
 
 def create_deck():
-    global file_paths
-    global deck_created
-    global delete_deck_button
-    if not file_paths:
-        return
-
-    if status_label.cget("text") == "Deck created!":
-        messagebox.showerror("Error", "A deck has already been created. Please select files again.")
-        return
-
-    deck_name = simpledialog.askstring("Input", "Enter the name for the deck file:")
-    if deck_name is None:
-        return
-
-    if os.path.exists(os.path.join(saved_decks_folder, deck_name + ".apkg")):
-        messagebox.showerror("Error", "A file with the same name already exists in the directory.")
-        return
-
-    deck = genanki.Deck(1, deck_name)
-
-    for file_path in file_paths:
-        # Run google ocr
-        helpers.google_document_ai(file_path)
-        create_card.create_card(create_card.read_json('data.json'), deck)
-
-    genanki.Package(deck).write_to_file(os.path.join(saved_decks_folder, deck_name + ".apkg"))
-
-    status_label.config(text="Deck created!", foreground="green", font=("Helvetica", 16, "bold"))
-    decks_created.append(deck_name)
-    list_existing_apkg_files()
-    deck_created = True
-    delete_deck_button.config(state="normal")
-
-def delete_deck():
-    global decks_created
-    global deck_created
-    if not deck_created:
-        messagebox.showerror("Error", "Please create a deck before deleting.")
-        return
-
-    files = filedialog.askopenfilenames()
-    if files:
-        for file_path in files:
-            selected_deck = os.path.splitext(os.path.basename(file_path))[0]
-            if selected_deck in decks_created:
-                decks_created.remove(selected_deck)
-                list_existing_apkg_files()
-
-                apkg_file = os.path.join(saved_decks_folder, selected_deck + ".apkg")
-                if os.path.exists(apkg_file):
-                    os.remove(apkg_file)
-            else:
-                messagebox.showerror("Error", "The specified deck does not exist.")
-
-def list_existing_apkg_files():
-    existing_files_label.config(text="Decks created: " + ", ".join(decks_created), foreground="#fff", font=("Helvetica", 14, "bold"))
+    #Run google ocr
+    helpers.google_document_ai(file_path)
+    deck = genanki.Deck
+    create_card.create_card(create_card.read_json('data.json'), deck)
+    # create_card.create_card(create_card.read_json(file_path), deck)
+    genanki.Package(deck).write_to_file("NewDeck.apkg")
 
 def main():
     global root
