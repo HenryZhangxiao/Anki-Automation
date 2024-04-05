@@ -8,7 +8,3 @@ numpy
 opencv-python
 pandas
 scikit-image
-tkinter
-Pillow
-genanki
-

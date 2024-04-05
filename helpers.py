@@ -175,8 +175,6 @@ def format_anki(data):
 
 # Google Cloud Vision
 def google_cloud_vision(filepath):
-
-
     client = vision.ImageAnnotatorClient()
 
     def detectText(img):
@@ -224,11 +222,6 @@ def google_cloud_vision(filepath):
 
 # Google Document AI
 def google_document_ai(filepath):
-    from typing import Optional
-    from google.api_core.client_options import ClientOptions
-    from google.cloud import documentai  # type: ignore
-    from google.cloud import documentai_v1
-
     # TODO(developer): Uncomment these variables before running the sample.
     project_id = "japaneseocr-1"
     location = "us" # Format is "us" or "eu"
