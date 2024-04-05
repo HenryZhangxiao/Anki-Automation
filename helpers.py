@@ -15,6 +15,10 @@ from google.cloud import vision_v1
 from google.cloud.vision_v1 import types
 
 # Google Document AI imports
+from typing import Optional
+from google.api_core.client_options import ClientOptions
+from google.cloud import documentai  # type: ignore
+from google.cloud import documentai_v1
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'japaneseocr-1-8883b9dcab0a.json'
 
