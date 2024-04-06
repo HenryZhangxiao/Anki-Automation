@@ -62,7 +62,7 @@ def same(img):
     return img
 
 
-# Shifting functions
+# Shifting functions as a percentage of the picture
 
 def shiftUp(img, percent):
     height, width = img.shape[:2]
@@ -101,7 +101,7 @@ def shiftRight(img, percent):
     return translated_image
 
 
-# Cropping function
+# Cropping function as a percentage of the image
 def crop_image(img, height_percent, width_percent):
     h1, h2 = height_percent
     w1, w2 = width_percent
@@ -124,26 +124,22 @@ def format_anki(data):
                     "bounding": obj["pageAnchor"]["pageRefs"][0]["boundingPoly"]["normalizedVertices"]
                 }
                 eng_trans.append(d)
-
             case "Kana":
                 d = {
                     "text": obj["mentionText"],
                 }
                 kana.append(d)
-
             case "Kanji":
                 d = {
                     "text": obj["mentionText"],
                     "bounding": obj["pageAnchor"]["pageRefs"][0]["boundingPoly"]["normalizedVertices"]
                 }
                 kanji.append(d)
-
             case "Sentence_English":
                 d = {
                     "text": obj["mentionText"],
                 }
                 eng_ex_sen.append(d)
-
             case "Sentence_Japanese":
                 d = {
                     "text": obj["mentionText"],
