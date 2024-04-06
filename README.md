@@ -3,6 +3,7 @@
   - python3
   - `pip install -r requirements.txt`
   - tkinter
+    - For Windows: Should be included within your Python installation by default
     - For Ubuntu: sudo apt-get install python3-tk
     - For Fedora: sudo dnf install python3-tkinter
     - For MacOS: brew install python-tk
