@@ -1,9 +1,10 @@
+#!/usr/bin/env python
+
 import tkinter as tk
 from tkinter import ttk, filedialog, simpledialog, messagebox
 import create_card
 import genanki
 import helpers
-import os
 
 file_paths = [] 
 deck_created = False

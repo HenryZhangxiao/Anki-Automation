@@ -4,3 +4,5 @@ data.json
 test-1.json
 japaneseocr-1-8883b9dcab0a.json
 __pycache__
+ main.spec
+ dist/main/_internal/torch/lib/torch_cpu.dll
