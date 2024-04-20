@@ -3,7 +3,7 @@
 A program to automatically create Anki flashcards from an image.
 
 The inspiration for this project comes from the tiresome process of manually creating Anki flashcards, especially in batches.<br>
-This program leverages Google Document AI to compute OCR given an image.
+This program leverages Google Document AI to perform OCR on a given image.
 
 
 [Watch a Demo here](https://www.youtube.com/watch?v=YgO4WUwoPPU)
